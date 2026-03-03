@@ -9,6 +9,10 @@ export const findUserByUsername = async (username) => {
 	return results[0];
 };
 
+export const validatePassword = async (plainPassword, storedHash) => {
+	return await bcrypt.compare(plainPassword, storedHash);
+};
+
 export const createUser = async (username, password, role = "user") => {
 	if (!username) throw new Error("Username is required.");
 	if (!password) throw new Error("Password is required.");
