@@ -19,7 +19,7 @@ export const createUser = async (username, password, role = "user") => {
 
 	const [result] = await db.execute(
 		"INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
-		[username, password, role],
+		[username, passwordHash, role],
 	);
 
 	return {
