@@ -11,11 +11,11 @@ export const findUserByUsername = async (username) => {
 
 export const createUser = async (username, password, role = "user") => {
 	if (!username) throw new Error("Username is required.");
-	if (!plainPassword) throw new Error("Password is required.");
+	if (!password) throw new Error("Password is required.");
 	if (role !== "user" && role !== "admin") throw new Error("invalid role.");
 
 	// Hash the password before inserting
-	const passwordHash = await hashPassword(plainPassword);
+	const passwordHash = await hashPassword(password);
 
 	const [result] = await db.execute(
 		"INSERT INTO users (username, password, role) VALUES (?, ?, ?)",

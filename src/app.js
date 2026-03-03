@@ -1,5 +1,5 @@
-import express from 'express';
-import defaultRouter from './routers/routes.js';
+import express from "express";
+import defaultRouter from "./routers/routes.js";
 
 //configure Express.js app
 const app = express();
@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 app.set("views", "src/views");
 
 //static directories
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 //middleware
 app.use(express.json());
