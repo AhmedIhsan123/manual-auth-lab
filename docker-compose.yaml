@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 00Z1n912122uDfaACb
+      MYSQL_DATABASE: products
+      MYSQL_USER: ahmedihsan
+      MYSQL_PASSWORD: 6im87Ty0v35hsUjw1
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306" # Host port 3307 -> container port 3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db # Access mysql on "db" container
+      PMA_PORT: 3306 # Use the container port
+      MYSQL_ROOT_PASSWORD: 00Z1n912122uDfaACb
+    ports:
+      - "8080:80" # Access phpMyAdmin at http://localhost:8080
