@@ -4,7 +4,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 00Z1n912122uDfaACb
-      MYSQL_DATABASE: Campus-Club-Hub
+      MYSQL_DATABASE: campus_club_hub
       MYSQL_USER: ahmedihsan
       MYSQL_PASSWORD: 6im87Ty0v35hsUjw1
     volumes:
